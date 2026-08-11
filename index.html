@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="violet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startpage | Personal Portal</title>
+  <meta name="description" content="A modern, dark glassmorphic personal browser startpage with custom shortcuts, search bar, and productivity widgets.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-background">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Top Action Bar -->
+    <header class="top-bar">
+      <div class="weather-badge glass-panel" id="weatherBadge">
+        <span class="weather-icon">☀️</span>
+        <span class="weather-temp">72°F</span>
+        <span class="weather-desc">Clear</span>
+      </div>
+      
+      <div class="top-actions">
+        <button class="icon-btn glass-panel" id="openSettingsBtn" title="Settings">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Clock & Greeting Banner -->
+      <section class="time-section">
+        <div class="clock-display" id="clock">00:00:00</div>
+        <div class="greeting-display" id="greeting">Good day</div>
+        <div class="date-display" id="date">Monday, January 1</div>
+      </section>
+
+      <!-- Search Section -->
+      <section class="search-section">
+        <div class="search-container glass-panel">
+          <!-- Engine Switcher Buttons -->
+          <div class="engine-tabs">
+            <button class="engine-btn active" data-engine="brave">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12 2L2 6.5v11L12 22l10-4.5v-11L12 2zm0 2.3l7.5 3.375v8.25L12 19.3l-7.5-3.375v-8.25L12 4.3z"/>
+              </svg>
+              <span>Brave</span>
+            </button>
+            <button class="engine-btn" data-engine="yandex">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M13.8 2H18v20h-4.2V13.8H12L8.4 22H3.8l4.4-10L4 2h4.5l3.5 8h.2V2h1.6z"/>
+              </svg>
+              <span>Yandex</span>
+            </button>
+          </div>
+
+          <form id="searchForm" class="search-form">
+            <div class="search-input-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="searchInput" placeholder="Search with Brave or enter URL... (Press '/' to focus)" autocomplete="off">
+              <kbd class="search-shortcut">/</kbd>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Main Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Shortcuts Column -->
+        <section class="shortcuts-section glass-panel">
+          <div class="section-header">
+            <h2 class="section-title">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+              </svg>
+              Quick Shortcuts
+            </h2>
+            <button class="add-btn glass-button" id="openAddShortcutBtn">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Add Shortcut
+            </button>
+          </div>
+
+          <div class="shortcuts-grid" id="shortcutsGrid">
+            <!-- Shortcuts injected dynamically by script.js -->
+          </div>
+        </section>
+
+        <!-- Daily Focus & Todo Section -->
+        <section class="tasks-section glass-panel">
+          <div class="section-header">
+            <h2 class="section-title">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              Tasks & Focus
+            </h2>
+            <span class="task-counter" id="taskCounter">0 completed</span>
+          </div>
+
+          <!-- Focus Goal Card -->
+          <div class="focus-card">
+            <label class="focus-label">Today's Primary Focus</label>
+            <input type="text" id="focusInput" class="focus-input" placeholder="What is your main goal for today?" autocomplete="off">
+          </div>
+
+          <!-- Todo List -->
+          <div class="todo-wrapper">
+            <form id="todoForm" class="todo-form">
+              <input type="text" id="todoInput" placeholder="Add a new task..." autocomplete="off">
+              <button type="submit" class="todo-add-btn">Add</button>
+            </form>
+            
+            <ul class="todo-list" id="todoList">
+              <!-- Todo items injected dynamically by script.js -->
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>Clean • Fast • Private Startpage</p>
+    </footer>
+  </div>
+
+  <!-- Modal: Add / Edit Shortcut -->
+  <div class="modal-overlay" id="shortcutModal">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3 id="shortcutModalTitle">Add Quick Shortcut</h3>
+        <button class="close-btn" id="closeShortcutModal">&times;</button>
+      </div>
+      <form id="shortcutForm">
+        <input type="hidden" id="shortcutId">
+        <div class="form-group">
+          <label for="shortcutTitle">Site Title</label>
+          <input type="text" id="shortcutTitle" placeholder="e.g. GitHub" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="shortcutUrl">URL</label>
+          <input type="url" id="shortcutUrl" placeholder="https://github.com" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="shortcutIcon">Custom Icon Class / Emoji (Optional)</label>
+          <input type="text" id="shortcutIcon" placeholder="e.g. 💻 or github" autocomplete="off">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelShortcutBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveShortcutBtn">Save Shortcut</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Settings -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3>Startpage Preferences</h3>
+        <button class="close-btn" id="closeSettingsModal">&times;</button>
+      </div>
+      <div class="settings-body">
+        <div class="setting-item">
+          <label for="userNameInput">Greeting Name</label>
+          <input type="text" id="userNameInput" placeholder="Friend" class="setting-input">
+        </div>
+        <div class="setting-item">
+          <label for="timeFormatSelect">Time Format</label>
+          <select id="timeFormatSelect" class="setting-select">
+            <option value="12">12-Hour (1:30 PM)</option>
+            <option value="24">24-Hour (13:30)</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label>Theme Glow Accent</label>
+          <div class="theme-options">
+            <button class="theme-swatch violet active" data-theme="violet" title="Violet Glow"></button>
+            <button class="theme-swatch cyan" data-theme="cyan" title="Cyber Cyan"></button>
+            <button class="theme-swatch emerald" data-theme="emerald" title="Emerald Green"></button>
+            <button class="theme-swatch amber" data-theme="amber" title="Sunset Amber"></button>
+            <button class="theme-swatch white" data-theme="white" title="Pure White Glow"></button>
+          </div>
+        </div>
+        <div class="setting-item border-top">
+          <label>Data Management</label>
+          <div class="data-btn-group">
+            <button type="button" class="btn btn-secondary" id="exportDataBtn">Export JSON</button>
+            <button type="button" class="btn btn-danger" id="resetDefaultsBtn">Reset All Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
